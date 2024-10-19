@@ -10,7 +10,8 @@ RUN pip install -r requirements.txt
 RUN echo "deb http://archive.debian.org/debian/ stretch main" > /etc/apt/sources.list \
     && echo "deb http://archive.debian.org/debian-security stretch/updates main" >> /etc/apt/sources.list 
 #      ↑ 実行すると  apt update　→　apt install vim などができる
-RUN apt-get update 
+RUN apt-get update\
+    && apt-get install tmux -y
     # && apt-get install -y vi 
     # && apt-get install -y locales \
     # && sed -i -E 's/# (ja_JP.UTF-8)/\1/' /etc/locale.gen \
